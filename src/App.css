@@ -8,14 +8,15 @@
 }
 .dark {
   --background-color: #333333;
-  /* --text-color: #ffffff; */
+  --text-color: #f11818;
+  
 }
 
 body {
   background-color: var(--background-color);
-  /* color: var(--text-color); */
+  color: var(--text-color);
 }
-
+/* 
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -50,4 +51,4 @@ body {
 
 .read-the-docs {
   color: #888;
-}
+} */
