@@ -8,13 +8,13 @@ import { signup } from "../redux/auth/authSlice";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSUbmit = (e) => {
     e.preventDefault();
-    dispatch(signup({ userName, password ,email}));
+    dispatch(signup({ username, password ,email}));
     toast("succesfully signIn !!")
   };
 
@@ -66,7 +66,7 @@ const SignUp = () => {
         <div className="relative z-0 w-full mb-5 group">
           <input
             type="text"
-            value={userName}
+            value={username}
             name="floating_name"
             id="floating_name"
             onChange={(e) => setUserName(e.target.value)}

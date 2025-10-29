@@ -18,15 +18,20 @@ const authSlice = createSlice({
       state.user = newUser;
     },
     login: (state, action) => {
-      const { username, password } = action.payload;
+      const { user, password } = action.payload;
+      console.log(user,"username")
       const storedUser = JSON.parse(localStorage.getItem("user"));
+      console.log(storedUser.username,"storeduser")
+ 
       if (
-        storedUser.username === username &&
+        storedUser.username === user &&
         storedUser.password === password
       ) {
         state.user = storedUser;
         state.isAuthenticated = true;
         localStorage.setItem("user", JSON.stringify(storedUser));
+      } else if (!storedUser.username || !storedUser.password) {
+        state.isAuthenticated = false;
       } else {
         alert("invalid credential");
         state.isAuthenticated = false;
@@ -40,7 +45,7 @@ const authSlice = createSlice({
       state.visitedPages = state.visitedPages.filter(
         (movie) => movie.id !== movieToAdd
       );
-      
+
       state.visitedPages.unshift(movieToAdd);
 
       if (state.visitedPages.length > 5) {
